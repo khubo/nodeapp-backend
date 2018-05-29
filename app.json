@@ -1,0 +1,5 @@
+{
+  "name": "Simlpe Node.js react app",
+  "description": "A barebones react koa app",
+  "keywords": ["node", "express", "heroku"],
+}
