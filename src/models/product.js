@@ -33,6 +33,12 @@ class Product {
       .limit(limit)
       .skip(offset)
   }
+
+  getCount () {
+    return this.Product.aggregate(
+      [{$group: {_id: '$gst', count: {$sum: 1}}}]
+    )
+  }
 }
 
 export default Product

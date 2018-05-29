@@ -11,6 +11,7 @@ router.get('/', async ctx => {
   }
 })
 
+// add product api
 router.post('/product', async ctx => {
   // validate the req
   const body = joi.validate(ctx.request.body, productSchema)
@@ -27,6 +28,7 @@ router.post('/product', async ctx => {
   }
 })
 
+// proudcts data api
 router.get('/products', async ctx => {
   let { limit, offset } = ctx.request.query
 
@@ -41,4 +43,15 @@ router.get('/products', async ctx => {
   }
 })
 
+// count api
+router.get('/count', async ctx => {
+  // fetch all products count
+  const Product = new ctx.models['Product']()
+  let products = await Product.getCount()
+
+  // send response
+  ctx.body = {
+    products
+  }
+})
 export default router
