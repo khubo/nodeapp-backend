@@ -1,5 +1,5 @@
-import user from './User'
+import Product from './product'
 
 export default {
-  user
+  Product
 }
