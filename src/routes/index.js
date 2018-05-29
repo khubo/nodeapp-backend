@@ -47,11 +47,11 @@ router.get('/products', async ctx => {
 router.get('/count', async ctx => {
   // fetch all products count
   const Product = new ctx.models['Product']()
-  let products = await Product.getCount()
+  let count = await Product.getCount()
 
   // send response
   ctx.body = {
-    products
+    count
   }
 })
 export default router
