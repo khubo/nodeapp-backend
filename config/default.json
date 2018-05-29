@@ -1,7 +1,7 @@
 {
   "jwtSecret": "charizard_is_gay",
   "mongo": {
-    "uri" : "mongodb://localhost:27017/flinter",
+    "uri" : "mongodb://khubo:trustrc1234@ds239940.mlab.com:39940/trustrc",
     "options": {
       
     }

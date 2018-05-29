@@ -1,7 +1,7 @@
 import Router from 'koa-router'
 import joi from 'joi'
 import { productSchema } from '../validators/product'
-
+import { calculateTotal } from '../services/gst'
 const router = new Router()
 
 router.get('/', async ctx => {
@@ -16,7 +16,9 @@ router.post('/product', async ctx => {
   // validate the req
   const body = joi.validate(ctx.request.body, productSchema)
   if (body.error) ctx.throw(400, body.error.message)
-
+  // calcuate total
+  const total = await calculateTotal(body.value.price, body.value.gst)
+  body.value.total = total
   // add product to db
   const Product = new ctx.models['Product']()
   await Product.add(body.value)

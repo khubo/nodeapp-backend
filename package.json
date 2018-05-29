@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/arjunskumar47/flinter-backend#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "bluebird": "^3.5.1",
     "config": "^1.30.0",
     "joi": "^13.1.2",
