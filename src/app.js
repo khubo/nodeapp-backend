@@ -14,14 +14,11 @@ const app = new Koa()
 app.context.models = models
 /* register middelwares */
 
-// dont use logger during tests.
 app.use(logger({
   transporter: (str, args) => {
     logTransporter.info(...args)
   }
 }))
-
-// run swagger if env is not production
 
 app.use(cors())
 app.use(bodyParser())
