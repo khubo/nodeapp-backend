@@ -1,0 +1,22 @@
+version: '2.1'
+
+services:
+  # mongodb
+  mongodb:
+    container_name: "mongo"
+    image: mongo:latest
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - "tx-data:/data/db"
+    command: mongod --smallfiles --logpath=/dev/null
+    ports:
+      - "27017:27017"
+
+networks:
+  mongo-net:
+
+volumes:
+  tx-data:
+  mongodata-data:

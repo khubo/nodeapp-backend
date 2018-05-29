@@ -1,0 +1,10 @@
+{
+  "jwtSecret": "charizard_is_gay",
+  "mongo": {
+    "uri" : "mongodb://localhost:27017/flinter",
+    "options": {
+      
+    }
+  },
+  "PORT": "1337"
+}
