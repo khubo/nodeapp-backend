@@ -2,6 +2,7 @@ import Koa from 'koa'
 import cors from 'koa-cors'
 import logger from 'koa-logger'
 import bodyParser from 'koa-bodyparser'
+import serveStatic from 'koa-static'
 import router from './routes'
 import models from './models'
 import logTransporter from './utils/logger'
@@ -24,6 +25,7 @@ app.use(logger({
 
 app.use(cors())
 app.use(bodyParser())
+app.use(serveStatic(__dirname + '/public'))
 router.prefix('/api')
 app.use(router.routes())
 app.use(router.allowedMethods())
