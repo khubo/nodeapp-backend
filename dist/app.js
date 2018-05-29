@@ -45,14 +45,11 @@ const app = new _koa2.default();
 app.context.models = _models2.default;
 /* register middelwares */
 
-// dont use logger during tests.
 app.use((0, _koaLogger2.default)({
   transporter: (str, args) => {
     _logger2.default.info(...args);
   }
 }));
-
-// run swagger if env is not production
 
 app.use((0, _koaCors2.default)());
 app.use((0, _koaBodyparser2.default)());
