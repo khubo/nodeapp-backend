@@ -18,6 +18,7 @@ class Product {
   // add a user to db.
   add (product) {
     product.createdAt = Date.now()
+    product.total = product.price + (product.price * product.gst / 100)
     let newProduct = new this.Product(product)
     return newProduct.save()
   }
