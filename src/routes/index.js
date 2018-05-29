@@ -17,13 +17,27 @@ router.post('/product', async ctx => {
   if (body.error) ctx.throw(400, body.error.message)
 
   // add product to db
-  const product = new ctx.models['Product']()
-  await product.add(body.value)
+  const Product = new ctx.models['Product']()
+  await Product.add(body.value)
     .catch(e => ctx.throw(500, 'error adding data to db'))
 
   // send response
   ctx.body = {
     message: 'successfully added'
+  }
+})
+
+router.get('/products', async ctx => {
+  let { limit, offset } = ctx.request.query
+
+  // retrieve data
+  const Product = new ctx.models['Product']()
+  let products = await Product.get(limit, offset)
+    .catch(e => ctx.throw(500, 'error adding data to db'))
+
+  // send data back
+  ctx.body = {
+    products
   }
 })
 
